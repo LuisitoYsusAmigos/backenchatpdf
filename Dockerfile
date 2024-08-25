@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["python", "main1.py"]
+CMD ["python", "main1.py", "--host=0.0.0.0"]
