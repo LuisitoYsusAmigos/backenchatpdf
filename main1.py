@@ -35,7 +35,7 @@ def recibir_pregunta():
     
     # Procesar la pregunta usando tu módulo
     # respuesta = moduloPreguntas.preguntatest(pregunta)
-    respuesta = moduloPreguntas.preguntatest(pregunta)
+    respuesta = moduloPreguntas.pregunta(pregunta)
 
     # Respuesta que incluye la pregunta recibida
     respuesta = f"{respuesta}"
