@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer
 from langchain_community.vectorstores.faiss import FAISS
 
 def creacionEmbeding():
-    pdf_file_obj = open('Antecedentes.pdf', 'rb')
+    pdf_file_obj = open('museo.pdf', 'rb')
     pdf_reader = PdfReader(pdf_file_obj)
     text = ""
     for page in pdf_reader.pages:
