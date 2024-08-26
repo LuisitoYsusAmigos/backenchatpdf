@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import moduloPreguntas
 from CreaacionEmbedingPDF import creacionEmbeding
+from editkey import crearapikey
 
 app = Flask(__name__)
 CORS(app)
@@ -39,11 +40,22 @@ def recibir_pregunta():
 
     # Respuesta que incluye la pregunta recibida
     respuesta = f"{respuesta}"
+    respuesta=respuesta.replace("\n\n", "")
 
     # Devuelve la respuesta como JSON
     return jsonify({"respuesta": respuesta
                     #,"pregunta": pregunta
                     })
+
+@app.route('/apikey', methods=['POST'])
+def crearkey():
+    data = request.get_json()  # Si estás enviando un JSON
+    key = data.get('api_key')
+    afuera= crearapikey(key)
+    return jsonify({"respuesta": afuera
+                    #,"pregunta": pregunta
+                    })
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
