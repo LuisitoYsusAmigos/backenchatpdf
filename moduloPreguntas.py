@@ -25,8 +25,8 @@ def pregunta(pregunta):
     ]
     menssages.append({"role":"user","content": pregunta})
     completion = cliente.chat.completions.create(
-        #model="gpt-4o-mini",
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
+        #model="gpt-3.5-turbo",
         messages= menssages,
     )
     assistant_response= completion.choices[0].message.content
@@ -76,7 +76,7 @@ def preguntamod(preguntauser):
     
     docs = knowledge_base.similarity_search(preguntauser, 3)
     contexto = [doc.page_content for doc in docs]
-    pregunta="Responde en 3ra persona la siguiente pregunta en base al siguiente contexto. Pregunta:"+preguntauser+"contexto:["+str(contexto)+']'+"Si el contexto no tiene relacion con la pregunta porfavor reponde solamente que no cuentas con esa informacion, solo eso"
+    pregunta="Responde en 1ra persona la siguiente pregunta en base al siguiente contexto como si fueras el personaje de Eustaquio Méndez. Pregunta:"+preguntauser+" Eustaquio Méndez"+"contexto:["+str(contexto)+']'+"Si el contexto no tiene relacion con la pregunta porfavor reponde solamente que no cuentas con esa informacion, solo eso"
     with open('key.json', 'r') as file:
         config = json.load(file)
         api_key = config['api_key']
